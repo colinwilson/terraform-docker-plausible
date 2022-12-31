@@ -22,7 +22,6 @@ resource "docker_service" "plausible" {
         GEOLITE2_COUNTRY_DB     = local.maxmind_enabled ? "/geoip/${var.geoip_db}.mmdb" : null
         MAILER_EMAIL            = local.smtp_enabled ? "${var.smtp_creds.mailname}" : null
         SMTP_HOST_ADDR          = local.smtp_enabled ? docker_container.smtp[0].name : null
-        CRON_ENABLED            = local.smtp_enabled ? true : false
       }
 
       labels {
