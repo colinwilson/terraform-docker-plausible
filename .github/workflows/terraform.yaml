@@ -1,0 +1,58 @@
+name: 'Terraform GitHub Actions'
+
+on:
+  pull_request:
+
+jobs:
+  docs:
+    name: Generate & Inject Inputs/Outputs Table
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3.0.2
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Render terraform docs inside the README.md and push changes back to PR branch
+      uses: terraform-docs/gh-actions@v1.0.0
+      with:
+        working-dir: .
+        config-file: .terraform-docs.yaml
+        output-file: README.md
+        output-method: inject
+        git-push: "true"
+  terraform-fmt:
+    name: Terraform Format
+    needs: [docs]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -diff -check -no-color -recursive
+        continue-on-error: true
+
+      - uses: actions/github-script@v4
+        if: github.event_name == 'pull_request' && steps.fmt.outputs.exitcode != 0
+        env:
+          TF_FMT_STDOUT: "${{ steps.fmt.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌 - \`${{ steps.fmt.outcome }}\`
+            \`\`\`diff
+            ${process.env.TF_FMT_STDOUT}
+            \`\`\`
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+            throw "failed to run `terraform fmt -check -recursive -diff`"
