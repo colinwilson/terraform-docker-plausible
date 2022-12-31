@@ -116,3 +116,9 @@ variable "postgres_container_name" {
   description = "Postgres container name"
   default     = "plausible_db"
 }
+
+variable "log_level" {
+  type        = string
+  description = "Log level"
+  default     = "warn"
+}
