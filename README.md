@@ -16,6 +16,7 @@ A Terraform module to provision the self-hosted version of [Plausible Analytics]
 | <a name="input_geoip_db"></a> [geoip\_db](#input\_geoip\_db) | Set which MaxMind Database Plausible will utilise? | `string` | `"GeoLite2-City"` | no |
 | <a name="input_geoip_version"></a> [geoip\_version](#input\_geoip\_version) | MaxMind GeoIP Update Tool image version. | `string` | `"v4.10"` | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | Plausible hostname | `string` | `"localhost"` | no |
+| <a name="input_log_level"></a> [log\_level](#input\_log\_level) | Log level | `string` | `"warn"` | no |
 | <a name="input_networks"></a> [networks](#input\_networks) | Set of existing networks to connect Plausible to. | `set(string)` | `[]` | no |
 | <a name="input_plausible_version"></a> [plausible\_version](#input\_plausible\_version) | Plausible Analytics image version. | `string` | `"v1.5.1"` | no |
 | <a name="input_postgres_container_name"></a> [postgres\_container\_name](#input\_postgres\_container\_name) | Postgres container name | `string` | `"plausible_db"` | no |
