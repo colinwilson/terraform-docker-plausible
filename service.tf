@@ -23,6 +23,8 @@ resource "docker_service" "plausible" {
         MAILER_EMAIL            = local.smtp_enabled ? "${var.smtp_creds.mailname}" : null
         SMTP_HOST_ADDR          = local.smtp_enabled ? docker_container.smtp[0].name : null
         LOG_LEVEL               = lower(var.log_level)
+        HCAPTCHA_SITEKEY        = local.hcaptcha_enabled ? var.hcaptcha_creds.sitekey : null
+        HCAPTCHA_SECRET         = local.hcaptcha_enabled ? var.hcaptcha_creds.secret : null
       }
 
       labels {
