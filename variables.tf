@@ -51,6 +51,19 @@ variable "geoip_creds" {
   sensitive = true
 }
 
+variable "hcaptcha_creds" {
+  description = "hCaptcha credentials."
+  type = object({
+    sitekey = string
+    secret  = string
+  })
+  default = {
+    sitekey = null
+    secret  = null
+  }
+  sensitive = true
+}
+
 variable "smtp_creds" {
   description = "SMTP Credentials"
   type = object({
