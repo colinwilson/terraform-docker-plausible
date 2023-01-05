@@ -58,6 +58,7 @@ You'll be presented with a registration page to create the admin/owner account.
 | <a name="input_plausible_version"></a> [plausible\_version](#input\_plausible\_version) | Plausible Analytics image version. | `string` | `"v1.5.1"` | no |
 | <a name="input_postgres_container_name"></a> [postgres\_container\_name](#input\_postgres\_container\_name) | Postgres container name | `string` | `"plausible_db"` | no |
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | PostgreSQL image version. | `string` | `"14-alpine"` | no |
+| <a name="input_reduce_event_logging"></a> [reduce\_event\_logging](#input\_reduce\_event\_logging) | Reduce the level of query logging in ClickHouse? | `bool` | `true` | no |
 | <a name="input_smtp_creds"></a> [smtp\_creds](#input\_smtp\_creds) | SMTP Credentials | <pre>object({<br>    mailname = string<br>    host     = string<br>    port     = number<br>    username = string<br>    password = string<br>  })</pre> | <pre>{<br>  "host": null,<br>  "mailname": null,<br>  "password": null,<br>  "port": null,<br>  "username": null<br>}</pre> | no |
 
 ### Outputs
