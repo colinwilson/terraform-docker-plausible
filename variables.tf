@@ -135,3 +135,9 @@ variable "log_level" {
   description = "Log level"
   default     = "warn"
 }
+
+variable "reduce_event_logging" {
+  type        = bool
+  description = "Reduce the level of query logging in ClickHouse?"
+  default     = true
+}
