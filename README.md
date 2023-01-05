@@ -12,7 +12,7 @@ A Terraform module to provision the self-hosted version of [Plausible Analytics]
 Basic usage of this module is as follows:
 ```
 module "plausible_docker" {
-  #source = "github.com/colinwilson/terraform-docker-plausible"
+  source = "github.com/colinwilson/terraform-docker-plausible"
 
   hostname           = "plausible.example.com"
   base_url           = "https://plausible.example.com"
