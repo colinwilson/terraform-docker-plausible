@@ -15,6 +15,7 @@ A Terraform module to provision the self-hosted version of [Plausible Analytics]
 | <a name="input_geoip_creds"></a> [geoip\_creds](#input\_geoip\_creds) | MaxMind credentials. | <pre>object({<br>    acc = string<br>    key = string<br>  })</pre> | <pre>{<br>  "acc": null,<br>  "key": null<br>}</pre> | no |
 | <a name="input_geoip_db"></a> [geoip\_db](#input\_geoip\_db) | Set which MaxMind Database Plausible will utilise? | `string` | `"GeoLite2-City"` | no |
 | <a name="input_geoip_version"></a> [geoip\_version](#input\_geoip\_version) | MaxMind GeoIP Update Tool image version. | `string` | `"v4.10"` | no |
+| <a name="input_hcaptcha_creds"></a> [hcaptcha\_creds](#input\_hcaptcha\_creds) | hCaptcha credentials. | <pre>object({<br>    sitekey = string<br>    secret  = string<br>  })</pre> | <pre>{<br>  "secret": null,<br>  "sitekey": null<br>}</pre> | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | Plausible hostname | `string` | `"localhost"` | no |
 | <a name="input_log_level"></a> [log\_level](#input\_log\_level) | Log level | `string` | `"warn"` | no |
 | <a name="input_networks"></a> [networks](#input\_networks) | Set of existing networks to connect Plausible to. | `set(string)` | `[]` | no |
