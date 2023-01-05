@@ -25,6 +25,8 @@ resource "docker_service" "plausible" {
         LOG_LEVEL               = lower(var.log_level)
         HCAPTCHA_SITEKEY        = local.hcaptcha_enabled ? var.hcaptcha_creds.sitekey : null
         HCAPTCHA_SECRET         = local.hcaptcha_enabled ? var.hcaptcha_creds.secret : null
+        GOOGLE_CLIENT_ID        = local.google_api_enabled ? var.google_api_creds.id : null
+        GOOGLE_CLIENT_SECRET    = local.google_api_enabled ? var.google_api_creds.secret : null
       }
 
       labels {

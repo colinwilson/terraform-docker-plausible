@@ -13,7 +13,8 @@ locals {
 
   entrypoint = var.ext_postgres_creds.enabled != true ? "/entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run" : "/entrypoint.sh db migrate && /entrypoint.sh run"
 
-  maxmind_enabled  = try(coalesce(values(var.geoip_creds)...), null) != null ? true : false
-  smtp_enabled     = try(coalesce(values(var.smtp_creds)...), null) != null ? true : false
-  hcaptcha_enabled = try(coalesce(values(var.hcaptcha_creds)...), null) != null ? true : false
+  maxmind_enabled    = try(coalesce(values(var.geoip_creds)...), null) != null ? true : false
+  smtp_enabled       = try(coalesce(values(var.smtp_creds)...), null) != null ? true : false
+  hcaptcha_enabled   = try(coalesce(values(var.hcaptcha_creds)...), null) != null ? true : false
+  google_api_enabled = try(coalesce(values(var.google_api_creds)...), null) != null ? true : false
 }
