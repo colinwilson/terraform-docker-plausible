@@ -1,6 +1,41 @@
 # Terraform Docker Plausible Module
 A Terraform module to provision the self-hosted version of [Plausible Analytics](https://plausible.io) on a Docker Swarm cluster with the Traefik ingress controller. A great way to quickly deploy Plausible for development/testing or 'low traffic' sites.
 
+![Plausible Analytics Dashboard](https://res.cloudinary.com/lotuslabs/image/upload/v1672920842/Lotus%20Docs/Social%20Media/plausible-analytics-screenshot_ds_is3gvc.webp)
+
+## Compatibility/Requirements
+
+* Requires [Terraform](https://www.terraform.io/downloads.html) 1.2.0 or higher.
+
+## Usage
+Basic usage of this module is as follows:
+```
+module "plausible_docker" {
+  #source = "github.com/colinwilson/terraform-docker-plausible"
+
+  hostname           = "plausible.example.com"
+  base_url           = "https://plausible.example.com"
+  networks           = ["traefik"] # name of your Traefik Network
+}
+```
+Example output:
+```
+connected_networks = [
+  "traefik",
+]
+options_status = {
+  "external_pg_enabled" = false
+  "maxmind_enabled" = false
+  "smtp_enabled" = false
+}
+```
+
+Setup DNS records pointing your domain to your ingress and navigate to your `hostname` e.g. https://plausible.example.com
+
+You'll be presented with a registration page to create the admin/owner account.
+
+![Plausible Analytics Registration Page](https://res.cloudinary.com/lotuslabs/image/upload/v1672923448/Lotus%20Docs/Social%20Media/plausible-analytics-registration-page_bairzy.webp)
+
 <!-- BEGIN_TF_DOCS -->
 ### Inputs
 
