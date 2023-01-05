@@ -6,6 +6,7 @@ A Terraform module to provision the self-hosted version of [Plausible Analytics]
 ## Compatibility/Requirements
 
 * Requires [Terraform](https://www.terraform.io/downloads.html) 1.2.0 or higher.
+* Traefik ingress controller, see: [colinwilson/terraform-docker-traefik-v2](https://github.com/colinwilson/terraform-docker-traefik-v2) (or any other ingress controller e.g. nginx)
 
 ## Usage
 Basic usage of this module is as follows:
