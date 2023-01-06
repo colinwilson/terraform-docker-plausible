@@ -64,6 +64,19 @@ variable "hcaptcha_creds" {
   sensitive = true
 }
 
+variable "google_api_creds" {
+  description = "Google API Console credentials."
+  type = object({
+    id     = string
+    secret = string
+  })
+  default = {
+    id     = null
+    secret = null
+  }
+  sensitive = true
+}
+
 variable "smtp_creds" {
   description = "SMTP Credentials"
   type = object({
