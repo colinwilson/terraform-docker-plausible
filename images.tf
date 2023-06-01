@@ -15,7 +15,7 @@ resource "docker_image" "smtp" {
 }
 
 resource "docker_image" "geoip" {
-  name         = "maxmindinc/geoipupdate:${var.geoip_version}"
+  name         = "ghcr.io/maxmind/geoipupdate:${var.geoip_version}"
   keep_locally = true
 }
 

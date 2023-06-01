@@ -122,7 +122,7 @@ variable "postgres_version" {
 variable "geoip_version" {
   type        = string
   description = "MaxMind GeoIP Update Tool image version."
-  default     = "v4.10"
+  default     = "v5.1.1"
 }
 
 variable "clickhouse_container_name" {
