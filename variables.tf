@@ -104,7 +104,7 @@ variable "networks" {
 variable "plausible_version" {
   type        = string
   description = "Plausible Analytics image version."
-  default     = "v1.5.1"
+  default     = "v2.0.0"
 }
 
 variable "clickhouse_version" {
