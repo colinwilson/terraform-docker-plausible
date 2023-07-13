@@ -56,7 +56,7 @@ You'll be presented with a registration page to create the admin/owner account.
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | Plausible hostname | `string` | `"localhost"` | no |
 | <a name="input_log_level"></a> [log\_level](#input\_log\_level) | Log level | `string` | `"warn"` | no |
 | <a name="input_networks"></a> [networks](#input\_networks) | Set of existing networks to connect Plausible to. | `set(string)` | `[]` | no |
-| <a name="input_plausible_version"></a> [plausible\_version](#input\_plausible\_version) | Plausible Analytics image version. | `string` | `"v1.5.1"` | no |
+| <a name="input_plausible_version"></a> [plausible\_version](#input\_plausible\_version) | Plausible Analytics image version. | `string` | `"v2.0.0"` | no |
 | <a name="input_postgres_container_name"></a> [postgres\_container\_name](#input\_postgres\_container\_name) | Postgres container name | `string` | `"plausible_db"` | no |
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | PostgreSQL image version. | `string` | `"14-alpine"` | no |
 | <a name="input_reduce_event_logging"></a> [reduce\_event\_logging](#input\_reduce\_event\_logging) | Reduce the level of query logging in ClickHouse? | `bool` | `true` | no |
